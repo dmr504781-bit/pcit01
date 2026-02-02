@@ -26,7 +26,7 @@ header {
     grid-area: header;
     padding: 20px;
     text-align: center;
-    position: sticky;
+    
     border-radius: 10px;
     top: 0;
   background: linear-gradient(hsl(240, 100%, 25%),#ff0000);;   
@@ -142,13 +142,73 @@ footer {
     z-index: 10;
 }
 
-@media (min-width: 600px) {
-  .header {grid-area: 1 / span 6;}
-  .menu {grid-area: 2 / span 1;}
-  .content {grid-area: 2 / span 4;}
-  .facts {grid-area: 3 / span 6;}
-  .footer {grid-area: 4 / span 6;}
+/* Mobile Phones (max-width: 600px) */
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* Single column */
+    grid-template-areas:
+      "header"
+      "main"
+      "sidebar"
+      "footer";
+  }
+
+  main {
+    grid-template-columns: 1fr; /* One box per row */
+  }
+
+  .aside {
+    position: relative;
+    height: auto;
+  }
+
+  .box {
+    height: auto;
+  }
 }
+
+/* Tablets (601px to 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: 150px 1fr; /* Smaller sidebar */
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "footer footer";
+  }
+
+  main {
+    grid-template-columns: repeat(2, 1fr); /* Two boxes per row */
+  }
+
+  .aside {
+    height: auto;
+  }
+
+  .box {
+    height: 250px;
+  }
+}
+
+/* Laptops / Desktops (1025px and up) */
+@media (min-width: 1025px) {
+  .grid-container {
+    grid-template-columns: 200px 1fr; /* Original layout */
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "footer footer";
+  }
+
+  main {
+    grid-template-columns: repeat(3, 1fr); /* Three boxes per row */
+  }
+
+  .box {
+    height: 300px;
+  }
+}
+
 
 </style>
 </head>
