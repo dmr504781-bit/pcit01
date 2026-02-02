@@ -117,19 +117,42 @@ header {
     margin-bottom: 10px;
 }
 
+.facts {
+  margin-bottom: 5px;
+  border: 1px solid #000000;
+  color: #ffffff;
+  padding: 10px;
+  width: 250px;
+  text-align: justify;
+  height: 300px;
+  
+}
+
 .facts > h2 {
   font-size: 20px;
-  color: white
+  color:rgb(255, 255, 255);
 }
 
 .facts li {
   margin-bottom: 5px;
- border: 1px solid rgb(255, 255, 255);
-  padding: 10px;
-  width: 250px;
-  height: 200px;
-  text-align: justify;
-  color:#ffffff
+}
+
+
+
+@media (min-width: 600px) {
+  .header {grid-area: 1 / span 6;}
+  .main {grid-area: 3 / span 3;}
+  .content {grid-area: 2 / span 4;}
+  .facts {grid-area: 3 / span 6;}
+  .footer {grid-area: 4 / span 6;}
+}
+
+@media (min-width: 768px) {
+  .header {grid-area: 1 / span 6;}
+  .main {grid-area: 3 / span 3;}
+  .content {grid-area: 2 / span 4;}
+  .facts {grid-area: 2 / span 1;}
+  .footer {grid-area: 3 / span 6;}
 }
 
 footer {
@@ -142,72 +165,7 @@ footer {
     z-index: 10;
 }
 
-/* Mobile Phones (max-width: 600px) */
-@media (max-width: 600px) {
-  .grid-container {
-    grid-template-columns: 1fr; /* Single column */
-    grid-template-areas:
-      "header"
-      "main"
-      "sidebar"
-      "footer";
-  }
 
-  main {
-    grid-template-columns: 1fr; /* One box per row */
-  }
-
-  .aside {
-    position: relative;
-    height: auto;
-  }
-
-  .box {
-    height: auto;
-  }
-}
-
-/* Tablets (601px to 1024px) */
-@media (min-width: 601px) and (max-width: 1024px) {
-  .grid-container {
-    grid-template-columns: 150px 1fr; /* Smaller sidebar */
-    grid-template-areas:
-      "header header"
-      "sidebar main"
-      "footer footer";
-  }
-
-  main {
-    grid-template-columns: repeat(2, 1fr); /* Two boxes per row */
-  }
-
-  .aside {
-    height: auto;
-  }
-
-  .box {
-    height: 250px;
-  }
-}
-
-/* Laptops / Desktops (1025px and up) */
-@media (min-width: 1025px) {
-  .grid-container {
-    grid-template-columns: 200px 1fr; /* Original layout */
-    grid-template-areas:
-      "header header"
-      "sidebar main"
-      "footer footer";
-  }
-
-  main {
-    grid-template-columns: repeat(3, 1fr); /* Three boxes per row */
-  }
-
-  .box {
-    height: 300px;
-  }
-}
 
 
 </style>
